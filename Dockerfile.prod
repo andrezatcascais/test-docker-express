@@ -1,0 +1,13 @@
+#based on Debian, so it comes with apt
+FROM node:20-slim 
+
+WORKDIR /home/node/app
+
+# to be copied all files in the project directory into the image
+# don't use node_modules
+COPY . .
+
+# to make the installation of the dependencies, as if I had to install the application from scratch
+RUN npm install
+
+CMD node index.js
